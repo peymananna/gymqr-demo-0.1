@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تمام دستگاه‌های باشگاه - GymQR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazir&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Vazir', sans-serif;
+      background-color: #0a0a0a;
+      color: white;
+      padding: 1rem;
+      direction: rtl;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      color: #ff0033;
+      font-size: 2rem;
+    }
+
+    header p {
+      color: #ccc;
+      margin-bottom: 1rem;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .search-box input {
+      width: 60%;
+      max-width: 400px;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Vazir', sans-serif;
+      font-size: 1rem;
+    }
+
+    .device-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .device-card {
+      background: #1a1a1a;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+      padding: 0.5rem;
+      border: 2px solid transparent;
+    }
+
+    .device-card:hover {
+      border: 2px solid #ff0033;
+      background-color: #222;
+    }
+
+    .device-card img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .device-card h3 {
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      color: #ff0033;
+    }
+
+    /* مخفی‌سازی کارت‌ها هنگام فیلتر */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>تمام دستگاه‌های باشگاه</h1>
+    <p>روی یک دستگاه کلیک کنید تا حرکات آن را ببینید</p>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="جستجو در دستگاه‌ها..." oninput="filterDevices()">
+    </div>
+  </header>
+
+  <div class="device-grid" id="deviceGrid">
+    <div class="device-card" onclick="location.href='lat-pulldown.html'">
+      <img src="assets/images/download (1).jpeg" alt="Lat Pulldown">
+      <h3>لت پول‌داون</h3>
+    </div>
+
+    <div class="device-card" onclick="location.href='devices/chest-press-intro.html'">
+      <img src="assets/images/download (2).jpeg" alt="Chest Press">
+      <h3>پرس سینه</h3>
+    </div>
+
+    <div class="device-card" onclick="location.href='devices/leg-extension-intro.html'">
+      <img src="assets/images/download.jpeg" alt="Leg Extension">
+      <h3>پای جلو (Leg Extension)</h3>
+    </div>
+
+    <!-- دستگاه‌های دیگر را به همین صورت اضافه کن -->
+  </div>
+
+  <script>
+    function filterDevices() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.device-card');
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(input)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

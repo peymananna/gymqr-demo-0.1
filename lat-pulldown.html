@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lat Pulldown - GymQR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Anton', sans-serif;
+      background-image: url('/Users/peyman/Documents/gym/assets/images/image.png');
+      background-image: url('/Users/peyman/Documents/gym/assets/images/image.png');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      z-index: 2;
+      opacity: 0;
+      animation: typing 2.5s steps(20) forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid white;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+        opacity: 1;
+      }
+      to {
+        width: 18ch;
+        opacity: 1;
+      }
+    }
+
+    .start-button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: #ff0033;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      z-index: 2;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .start-button:hover {
+      transform: scale(1.1);
+    }
+
+    .pulse {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 0, 51, 0.5);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <h1>LET'S HIT THE ROAD</h1>
+  <div class="pulse"></div>
+  <button class="start-button" onclick="startTraining()">Start Training</button>
+
+  <script>
+    function startTraining() {
+      document.querySelector('.start-button').style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        window.location.href = 'lat-pulldown-moves.html';
+      }, 300);
+    }
+  </script>
+</body>
+</html>
